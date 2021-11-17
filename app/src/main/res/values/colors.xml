@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_white">#70FFFFFF</color>
+
+
+    <!-- AppColor Codes -->
+    <color name="app_yellow">#F3920B</color>
+    <color name="navi_blue">#21378D</color>
+    <color name="light_navi_blue">#5021378D</color>
+    <color name="custom_black">#250C0C</color>
+    <color name="light_grey">#F8F8F8</color>
+    <color name="grey_text">#908A8A</color>
+    <color name="light_green">#29F08D</color>
+    <color name="light_blue">#005DE8</color>
+    <color name="lime_green">#00BC46</color>
+    <color name="lime_red">#F87E7E</color>
+    <color name="color_red">#FF0000</color>
+    <color name="black_mate">#595959</color>
+    <color name="app_gold">#FF9200</color>
+    <color name="mid_grey">#A1A1A1</color>
+</resources>

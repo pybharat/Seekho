@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10sp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/size_10sp">
+
+            <TextView
+                android:id="@+id/question_no_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/question_1_text"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/small_medium_text_size" />
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/question_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:text="@string/the_value_of_1000_text"
+                android:textColor="@color/custom_black"
+                android:scrollbars="none"
+                android:textSize="@dimen/small_medium_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:text="@string/your_options_text"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/small_medium_text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 "
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold"/>
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/option_one_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5sp"
+                    android:text="@string/option_1_text"
+                    android:textColor="@color/custom_black"
+                    android:scrollbars="none"
+                    android:textSize="@dimen/small_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 "
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold"/>
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/option_two_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/option_2_text"
+                    android:layout_marginLeft="@dimen/size_5sp"
+                    android:textColor="@color/custom_black"
+                    android:scrollbars="none"
+                    android:textSize="@dimen/small_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 "
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold"/>
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/option_three_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                   android:layout_marginLeft="@dimen/size_5sp"
+                    android:text="@string/option_3_text"
+                    android:textColor="@color/custom_black"
+                    android:scrollbars="none"
+                    android:textSize="@dimen/small_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4 "
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold"/>
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/option_four_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5sp"
+                    android:text="@string/option_4_text"
+                    android:textColor="@color/custom_black"
+                    android:scrollbars="none"
+                    android:textSize="@dimen/small_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/obtain_marks_text"
+                    android:textColor="@color/light_blue"
+                    android:textSize="@dimen/small_medium_text_size" />
+
+                <TextView
+                    android:id="@+id/quiz_obtain_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/small_medium_text_size"
+                    android:layout_marginLeft="@dimen/size_5sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="@dimen/size_5sp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10sp"
+                        android:text="@string/correct_answ_text"
+                        android:textColor="@color/light_blue"
+                        android:textSize="@dimen/small_medium_text_size" />
+
+                    <io.github.kexanie.library.MathView
+                        android:id="@+id/correct_option_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10sp"
+                        android:text="@string/option_4_text"
+                        android:textColor="@color/custom_black"
+                        android:textSize="@dimen/small_medium_text_size"
+                        android:scrollbars="none"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/size_5sp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10sp"
+                        android:text="@string/your_ans_text"
+                        android:textColor="@color/light_blue"
+                        android:textSize="@dimen/small_medium_text_size" />
+
+                    <TextView
+                        android:id="@+id/your_ans_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10sp"
+                        android:text="@string/option_4_text"
+                        android:textColor="@color/custom_black"
+                        android:textSize="@dimen/small_medium_text_size"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

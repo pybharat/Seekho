@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
+
+    <include
+        android:id="@+id/toolbar_id"
+        layout="@layout/fragment_toolbar" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_id">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_id">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/size_15sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/remain_time_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_5sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_border_1dp_black_white_radius_8dp"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/size_10sp"
+                        android:paddingBottom="@dimen/size_10sp"
+                        android:text=""
+                        android:textColor="@color/custom_black"
+                        android:textSize="@dimen/small_text_size" />
+
+                    <TextView
+                        android:id="@+id/finish_test_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_navi_blue_radius_eight_btn_bg"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/size_10sp"
+                        android:paddingBottom="@dimen/size_10sp"
+                        android:text="@string/test_finish_text"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_text_size" />
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_2sp"
+                    android:layout_marginTop="@dimen/size_10sp"
+                    android:layout_marginRight="@dimen/size_2sp"
+                    android:layout_marginBottom="@dimen/size_2sp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/size_8sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/size_10sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/test_your_response_text"
+                                android:textSize="@dimen/small_text_size" />
+
+                            <ProgressBar
+                                android:id="@+id/progress_bar"
+                                android:layout_width="@dimen/size_20sp"
+                                android:layout_height="@dimen/size_20sp"
+                                android:indeterminate="true"
+                                android:indeterminateDrawable="@drawable/bg_progress"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_10sp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/answered_tv"
+                                    android:layout_width="@dimen/size_25sp"
+                                    android:layout_height="@dimen/size_25sp"
+                                    android:background="@drawable/bg_oval_green_white_border"
+                                    android:gravity="center"
+                                    android:maxLength="3"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/extra_small_text_size" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/size_8sp"
+                                    android:text="@string/test_answered_text"
+                                    android:textColor="@color/custom_black"
+                                    android:textSize="@dimen/small_text_size" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/not_answered_tv"
+                                    android:layout_width="@dimen/size_25sp"
+                                    android:layout_height="@dimen/size_25sp"
+                                    android:background="@drawable/bg_oval_red_white_border"
+                                    android:gravity="center"
+                                    android:maxLength="3"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/extra_small_text_size" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/size_8sp"
+                                    android:text="@string/test_not_answered_text"
+                                    android:textColor="@color/custom_black"
+                                    android:textSize="@dimen/small_text_size" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_10sp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/mark_as_tv"
+                                    android:layout_width="@dimen/size_25sp"
+                                    android:layout_height="@dimen/size_25sp"
+                                    android:background="@drawable/bg_oval_naviblue_white_border"
+                                    android:gravity="center"
+                                    android:maxLength="3"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/extra_small_text_size" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/size_8sp"
+                                    android:text="@string/test_mark_as_review_text"
+                                    android:textColor="@color/custom_black"
+                                    android:textSize="@dimen/small_text_size" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/open_summary_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/open_and_close_summary_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="start"
+                                    android:paddingLeft="@dimen/size_35sp"
+                                    android:text="@string/open_summary_text"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="@dimen/small_text_size" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/quiz_summary_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_200sp"
+                            android:layout_marginTop="@dimen/size_10sp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/quiz_summary_title_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/size_5sp"
+                                android:paddingBottom="@dimen/size_5sp"
+                                android:text="Quiz Summary Title"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/small_text_size" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/summary_rv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:itemCount="4"
+                                tools:listitem="@layout/rv_quiz_summary_layout" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/quiz_cv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_2sp"
+                    android:layout_marginTop="@dimen/size_10sp"
+                    android:layout_marginRight="@dimen/size_2sp"
+                    android:layout_marginBottom="@dimen/size_2sp"
+                    android:background="@color/white"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/size_8sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_left_right_corner_8dp_navi_blue"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/size_10sp"
+                            android:paddingTop="@dimen/size_10sp"
+                            android:paddingRight="@dimen/size_15sp"
+                            android:paddingBottom="@dimen/size_10sp">
+
+                            <TextView
+                                android:id="@+id/question_no_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/test_q_1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/small_medium_text_size"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/mark_as_review_btn_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="center_vertical"
+                                android:text="@string/test_mark_as_review_text"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/small_text_size" />
+
+                        </LinearLayout>
+
+                        <io.github.kexanie.library.MathView
+                            android:id="@+id/question_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_10sp"
+                            android:layout_marginTop="@dimen/size_5sp"
+                            android:layout_marginRight="@dimen/size_10sp"
+                            android:layout_marginBottom="@dimen/size_5sp"
+                            android:scrollbars="none"
+                            android:text="Question"
+                            android:textColor="@color/custom_black"
+                            android:textSize="@dimen/small_medium_text_size"
+                            app:engine="KaTeX" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/cb_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/size_10sp"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/size_1sp"
+                                android:layout_marginTop="@dimen/size_1sp"
+                                android:layout_marginRight="@dimen/size_5sp"
+                                android:layout_marginBottom="@dimen/size_1sp"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                app:cardCornerRadius="@dimen/size_8sp">
+
+                                <TextView
+                                    android:id="@+id/clear_res_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:paddingTop="@dimen/size_10sp"
+                                    android:paddingBottom="@dimen/size_10sp"
+                                    android:text="@string/test_clear_response_text"
+                                    android:textColor="@color/grey_text" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/save_and_next_btn_tv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/size_5sp"
+                                android:layout_weight="1"
+                                android:background="@drawable/custom_navi_blue_radius_eight_btn_bg"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/size_10sp"
+                                android:paddingBottom="@dimen/size_10sp"
+                                android:text="@string/test_save_next_text"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/small_text_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

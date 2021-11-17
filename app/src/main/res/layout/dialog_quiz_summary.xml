@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_5sp"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/size_8sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/size_10sp">
+
+            <TextView
+                android:id="@+id/quiz_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/quiz_summary_text"
+                android:textColor="@color/custom_black"
+                android:textSize="@dimen/small_medium_text_size" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/summary_rv_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10sp" />
+
+                    <TextView
+                        android:id="@+id/done_btn_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10sp"
+                        android:background="@drawable/custom_navi_blue_radius_eight_btn_bg"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/size_5sp"
+                        android:paddingBottom="@dimen/size_5sp"
+                        android:text="@string/done_text"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_text_size" />
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:id="@+id/null_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10sp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="@dimen/size_10sp">
+
+                <ImageView
+                    android:layout_width="@dimen/size_100sp"
+                    android:layout_height="@dimen/size_100sp"
+                    android:src="@drawable/warning_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_15sp"
+                    android:text="@string/you_have_not_ans_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/small_text_size"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_10sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/restart_btn_tv"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_navi_blue_radius_eight_btn_bg"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/size_5sp"
+                        android:paddingBottom="@dimen/size_5sp"
+                        android:text="@string/restart_quiz_text"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="@dimen/size_5sp"
+                        android:textSize="@dimen/small_text_size" />
+
+                    <TextView
+                        android:id="@+id/exit_anyway_btn_tv"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_navi_blue_radius_eight_btn_bg"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/size_5sp"
+                        android:paddingBottom="@dimen/size_5sp"
+                        android:text="@string/exit_anyway_text"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/size_5sp"
+                        android:textSize="@dimen/small_text_size" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

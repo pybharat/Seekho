@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
+
+    <include
+        android:id="@+id/toolbar_id"
+        layout="@layout/fragment_toolbar"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_id">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/toolbar_id"
+            android:paddingRight="@dimen/size_15sp"
+            android:paddingLeft="@dimen/size_15sp"
+            android:paddingTop="@dimen/size_15sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lec_and_acc_mcq_text"
+                android:textColor="@color/grey_text"
+                android:textSize="@dimen/medium_text_size" />
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="vertical">-->
+
+            <!--            <include-->
+            <!--                layout="@layout/rv_subjects_layout"/>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/que_ll"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:visibility="gone">-->
+            <!--                <include-->
+            <!--                    layout="@layout/rv_questions_layout"/>-->
+            <!--            </LinearLayout>-->
+
+            <!--        </LinearLayout>-->
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="vertical">-->
+
+            <!--            <include-->
+            <!--                layout="@layout/rv_subjects_layout"/>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:visibility="gone">-->
+            <!--                <include-->
+            <!--                    layout="@layout/rv_questions_layout"/>-->
+            <!--            </LinearLayout>-->
+
+            <!--        </LinearLayout>-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/subjects_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10sp"/>
+
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

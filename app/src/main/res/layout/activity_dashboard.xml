@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="@color/light_grey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/toolbar_id"
+            layout="@layout/fragment_toolbar"/>
+
+        <com.seekho.live.customviewpager.CustomViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_id"
+            android:layout_above="@+id/bottom_navigation_id"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_id"
+            android:layout_above="@+id/bottom_navigation_id"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/bottom_navigation_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            layout="@layout/fragment_bottom_navigation"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/fragment_navigation"/>
+</androidx.drawerlayout.widget.DrawerLayout>

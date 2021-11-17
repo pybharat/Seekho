@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_grey">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_50sp"
+        android:layout_marginBottom="@dimen/size_3sp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_15sp"
+            android:paddingRight="@dimen/size_15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/back_iv"
+                    android:layout_width="@dimen/size_20sp"
+                    android:layout_height="@dimen/size_20sp"
+                    android:src="@drawable/back_arrow_icon"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10sp"
+                    android:text="@string/subject_text"
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/small_medium_text_size"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/card_view">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/size_15sp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/youtube_cv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/size_8sp"
+                    android:layout_margin="@dimen/size_1sp"
+                    android:visibility="gone">
+
+                    <com.google.android.youtube.player.YouTubePlayerView
+                        android:id="@+id/you_tube_pv"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_250sp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/vimeo_cv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/size_8sp"
+                    android:layout_margin="@dimen/size_1sp"
+                    android:visibility="gone">
+
+                    <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+                        android:id="@+id/vimeo_player"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:autoPlay="false"
+                        app:showFullscreenOption="true"
+                        app:showOriginalControls="true"
+                        android:background="@color/black" />
+                </androidx.cardview.widget.CardView>
+
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/desc_wv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_10sp"
+                    android:gravity="start"
+                    app:engine="MathJax"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/small_text_size"
+                    android:visibility="visible"/>
+
+                <!--            <io.github.kexanie.library.MathView-->
+                <!--                android:id="@+id/math_view"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginTop="@dimen/size_10sp"-->
+                <!--                app:engine="MathJax"/>-->
+
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:orientation="vertical">-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_10sp"-->
+                <!--                    android:text="@string/elementary_algebra_text"-->
+                <!--                    android:textAllCaps="true"-->
+                <!--                    android:textColor="@color/light_blue"-->
+                <!--                    android:textSize="@dimen/small_medium_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/common_formula_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_1_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_2_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_3_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_4_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+                <!--            </LinearLayout>-->
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:orientation="vertical">-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_10sp"-->
+                <!--                    android:text="@string/elementary_algebra_text"-->
+                <!--                    android:textAllCaps="true"-->
+                <!--                    android:textColor="@color/light_blue"-->
+                <!--                    android:textSize="@dimen/small_medium_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/common_formula_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_1_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_2_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_3_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
+                <!--                    android:text="@string/option_4_text"-->
+                <!--                    android:textColor="@color/custom_black"-->
+                <!--                    android:textSize="@dimen/small_text_size" />-->
+                <!--            </LinearLayout>-->
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/bg_progress"
+        android:visibility="gone" />
+</RelativeLayout>

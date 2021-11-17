@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lecture_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/size_10sp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/topic_icon_iv"
+                android:layout_width="@dimen/size_15sp"
+                android:layout_height="@dimen/size_12sp"
+                android:src="@drawable/sand_watch_icon"/>
+
+            <TextView
+                android:id="@+id/topic_name_tv"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/lecture_no_text"
+                android:layout_marginLeft="@dimen/size_10sp"
+                android:textSize="@dimen/small_text_size"
+                android:textColor="@color/grey_text"/>
+
+            <TextView
+                android:id="@+id/total_duration_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lecture_time_text"
+                android:layout_marginLeft="@dimen/size_10sp"
+                android:textSize="@dimen/extra_small_text_size"
+                android:textColor="@color/grey_text"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/grey_text"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_60sp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_5sp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/home_rl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/size_8sp">
+
+                <ImageView
+                    android:id="@+id/home_iv"
+                    android:layout_width="@dimen/size_20sp"
+                    android:layout_height="@dimen/size_20sp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/home_fill_icon" />
+
+                <TextView
+                    android:id="@+id/home_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/home_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/size_5sp"
+                    android:text="@string/home_text"
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/extra_small_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/mock_tests_rl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/size_8sp">
+
+                <ImageView
+                    android:id="@+id/mock_tests_iv"
+                    android:layout_width="@dimen/size_20sp"
+                    android:layout_height="@dimen/size_20sp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/moke_test_border_icon" />
+
+                <TextView
+                    android:id="@+id/mock_tests_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mock_tests_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/size_5sp"
+                    android:text="@string/mock_tests_text"
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/extra_small_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/profile_rl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/size_8sp">
+
+                <ImageView
+                    android:id="@+id/profile_iv"
+                    android:layout_width="@dimen/size_20sp"
+                    android:layout_height="@dimen/size_20sp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/profile_border_icon" />
+
+                <TextView
+                    android:id="@+id/profile_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/size_5sp"
+                    android:text="@string/profile_text"
+                    android:textColor="@color/custom_black"
+                    android:textSize="@dimen/extra_small_text_size" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

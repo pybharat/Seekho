@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/size_5sp"
+                android:color="@color/white"/>
+            <size android:width="@dimen/size_120sp"
+                android:height="@dimen/size_120sp"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/check_icon"
+        android:gravity="center"
+        android:width="@dimen/size_90sp"
+        android:height="@dimen/size_90sp"/>
+</layer-list>

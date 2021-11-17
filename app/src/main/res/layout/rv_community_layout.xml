@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_5sp"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/size_6sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10sp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/size_90sp"
+                    android:layout_height="@dimen/size_90sp"
+                    android:background="@mipmap/ic_launcher_round"
+                    app:civ_border_color="@color/grey_text"
+                    app:civ_border_width="@dimen/size_2sp" />
+
+                <View
+                    android:layout_width="@dimen/size_2sp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/size_10sp"
+                    android:layout_marginTop="@dimen/size_10sp"
+                    android:layout_marginBottom="@dimen/size_10sp"
+                    android:background="@color/grey_text" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/size_10sp">
+
+                    <TextView
+                        android:id="@+id/mem_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/member_name_text"
+                        android:textColor="@color/custom_black"
+                        android:textSize="@dimen/small_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/mem_location_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location_text"
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/extra_small_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/mid_grey"
+                        android:layout_marginTop="@dimen/size_5sp"/>
+
+                    <TextView
+                        android:id="@+id/mem_desc_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLength="200"
+                        android:text="@string/dummy_text"
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/extra_small_text_size"
+                        android:layout_marginTop="@dimen/size_5sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

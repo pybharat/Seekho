@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item >
+        <shape android:shape="rectangle">
+            <solid android:color="@color/navi_blue"/>
+        </shape>
+    </item>
+
+    <item android:bottom="@dimen/size_150sp"
+        android:right="-280dp"
+        android:left="-280dp"
+        android:top="-100dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+
+<!--    <item android:bottom="100dp"-->
+<!--        android:right="@dimen/size_380sp"-->
+<!--        android:left="-90dp"-->
+<!--        android:top="-200dp">-->
+<!--        <shape android:shape="oval">-->
+<!--            <solid android:color="@color/navi_blue"/>-->
+<!--        </shape>-->
+<!--    </item>-->
+
+<!--    <item android:bottom="100dp"-->
+<!--        android:right="-90dp"-->
+<!--        android:left="@dimen/size_380sp"-->
+<!--        android:top="-200dp">-->
+<!--        <shape android:shape="oval">-->
+<!--            <solid android:color="@color/navi_blue"/>-->
+<!--        </shape>-->
+<!--    </item>-->
+
+</layer-list>

@@ -1,0 +1,273 @@
+<resources>
+    <string name="app_name">Seekho</string>
+    <string name="app_version_text">App Version 1.0</string>
+
+    <!-- Toolbar -->
+    <string name="title_text">Title</string>
+
+    <!-- YouTube Player API Key   -->
+    <string name="you_tube_api_key">AIzaSyAT2XqjoDGsAfixlS-la-NxL-zN4HPN9ZI</string>
+
+    <!-- Login Screen -->
+    <string name="enter_your_email_text">Enter your email or mobile number</string>
+    <string name="password_text">Password..</string>
+    <string name="forget_password_text">Forget Password?</string>
+    <string name="login_text">Login</string>
+    <string name="do_not_have_acc_text">Do not have a account?</string>
+    <string name="sign_up_text">Sign Up</string>
+
+    <!-- Register Screen -->
+    <string name="name_text">Full Name</string>
+    <string name="email_text">Email</string>
+    <string name="mobile_no_text">Mobile Number</string>
+    <string name="confirm_pass_text">Confirm Password</string>
+    <string name="term_and_condition_text">I accept All Terms and Conditions</string>
+    <string name="create_acc_text">Create Account</string>
+    <string name="update_acc_text">Update Profile</string>
+    <string name="already_have_acc_text">Already have a account?</string>
+
+    <!-- Update Profile -->
+    <string name="first_name_text">First Name</string>
+    <string name="last_name_text">Last Name</string>
+
+    <!-- Forget Password Dialog -->
+    <string name="forget_pass_text">Forget Password</string>
+    <string name="your_registered_email_or_phone_text">Your registered email or mobile number</string>
+    <string name="sent_otp_text">Sent OTP</string>
+    <string name="an_otp_has_been_sent_text">An OTP will be sent. \nPlease check your given \nEmail or Mobile Number</string>
+
+    <!-- Bottom Navigation -->
+    <string name="home_text">Home</string>
+    <string name="mock_tests_text">Mock Tests</string>
+    <string name="profile_text">Profile</string>
+
+    <!-- Offers Fragment -->
+    <string name="offers_text">Hurry! Welcome offer available 100% off on NEET till further Notification</string>
+    <string name="offers_0_text">Hurry! Welcome Offer: 100% off on all Courses till further Notification</string>
+
+    <!-- Side Navigation Drawer -->
+    <string name="username_text">Username</string>
+    <string name="email_address_text">username@gyanvihar.com</string>
+    <string name="settings_text">Settings</string>
+    <string name="share_this_app_text">Share this app</string>
+    <string name="contact_us_text">Contact Us</string>
+    <string name="rate_us_text">Rate Us</string>
+    <string name="privacy_policy_text">Privacy Policy</string>
+    <string name="log_out_text">Logout</string>
+
+
+    <!-- Promotion RecyclerView -->
+    <string name="no_promotion_text">No Promotion Banner Available</string>
+
+    <!-- Courses RecyclerView -->
+    <string name="courses_text">Courses</string>
+    <string name="courses_title_text">Courses Title</string>
+    <string name="view_all_text">View All</string>
+
+    <!-- Blogs RecyclerView -->
+    <string name="blogs_text">Blogs</string>
+    <string name="blogs_title_text">Blogs Title</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s</string>
+    <string name="blog_time_text">04:14 PM</string>
+
+    <!-- Community RecyclerView -->
+    <string name="community_text">Community</string>
+    <string name="member_name_text">Community Member Name</string>
+    <string name="location_text">Delhi,India</string>
+
+    <!-- OTPVerification Screen -->
+    <string name="check_your_given_text">Please check your given</string>
+    <string name="or_text">or</string>
+    <string name="given_email_text">We have sent you a OTP for verification.</string>
+    <string name="otp_sec_text">00:59 Sec</string>
+    <string name="did_not_rec_otp_text">If you did not receive any OTP (One Time Password) press here.</string>
+    <string name="resend_otp_text">Resend OTP</string>
+    <string name="zero_text">0</string>
+    <string name="otp_verified_text">OTP has been verified you are logged in now.</string>
+
+    <!-- ProfileScreen -->
+    <string name="subscription_text">Subscribed Courses</string>
+    <string name="edit_text">Edit</string>
+    <string name="change_pass_text">Change Password</string>
+
+    <!-- SubCourses Screen -->
+    <string name="main_course_text">Main Course</string>
+    <string name="sub_course_text">Sub Courses</string>
+    <string name="course_name_text">Course Name</string>
+    <string name="detail_study_notes_text">Detail study notes.</string>
+    <string name="videos_850_text">850+ videos for better understanding.</string>
+    <string name="prepared_by_text">Prepared by highly experienced subject experts.</string>
+
+    <!-- Lectures and Accompaying MCQ -->
+    <string name="lec_and_acc_mcq_text">Lectures and Accompaying MCQ</string>
+    <string name="subject_name_text">Subject Name</string>
+    <string name="lecture_no_text">Lecture No 0</string>
+    <string name="lecture_quiz_text">Lecture No 0 : Quiz</string>
+    <string name="lecture_time_text">01:01:34</string>
+    <string name="lecture_total_question_text">Total Questions: 99</string>
+
+    <!-- SubjectsLecture Activity -->
+    <string name="about_text">Mathematics is the supporting tool for physics. The elementary Knowledgeof basic maths is useful in problem-solving in physics. Basic Knowledge of elementary algebra, trigonometry. coordinate,geometry and calculus is must before going into the depth of physics.</string>
+
+    <string name="elementary_algebra_text">Elementary Algebra</string>
+    <string name="common_formula_text">Common Formula</string>
+    <string name="option_1_text">1. Option</string>
+    <string name="option_2_text">2. Option</string>
+    <string name="option_3_text">3. Option</string>
+    <string name="option_4_text">4. Option</string>
+
+    <!-- QuizActivity -->
+    <string name="tests_text">Test</string>
+    <string name="test_time_text">Time left: 00:00:00</string>
+    <string name="test_finish_text">Finish Test</string>
+    <string name="test_your_response_text">Your Response:</string>
+    <string name="test_answered_text">Answered</string>
+    <string name="test_not_answered_text">Not Answered</string>
+    <string name="test_mark_as_review_text">Mark as review</string>
+    <string name="open_summary_text">Open Summary</string>
+    <string name="close_summary_text">Close Summary</string>
+    <string name="test_q_1">Q. 1</string>
+    <string name="test_question">Which of the following radiations has the least wavelength?</string>
+    <string name="test_clear_response_text">Clear Response</string>
+    <string name="test_save_next_text">Save &amp; Next</string>
+
+    <!-- QuizSummary Dialog -->
+    <string name="quiz_summary_text">Quiz Summary</string>
+    <string name="done_text">Done</string>
+    <string name="you_have_not_ans_text">You did not give any answer!!! want to exit?</string>
+    <string name="exit_anyway_text">Exit Anyway</string>
+    <string name="restart_quiz_text">Restart Quiz</string>
+
+    <!-- QuizAleart Dialog -->
+    <string name="lecture_1_quiz_text">Lecture 1 Quiz</string>
+    <string name="instructions_text">Instructions:</string>
+    <string name="instructions_about_text">Total duration of this test is 60 minutes.
+
+There will be 14 Single Option Correct MCQ questions.
+
+There is 1 section in the question paper consisting of 30 questions.
+
+Each question is allotted 4 (Four) marks for correct response.
+
+1 (One) mark will be deducted for indicating incorrect response for each
+   question.
+
+No deduction from the total score will be made if no response is
+indicated.
+
+To activate RankUp - Guaranteed improvement plan, you must spend
+atleast 30% of the time allocated to the test.
+
+Please use ONE device, browser and tab while taking this test. As an
+anti-cheating measure, switching between tabs, browsers or devices
+will result in loss of your test data.
+
+To get access to your Advanced Test Feedback, ensure that you have:
+spent at least 10% of the total test time and
+attempted 10% of the total number of questions in the test.</string>
+    <string name="have_read_text">I have read and understood the instructions.</string>
+    <string name="start_test_text">Start Test</string>
+
+    <!-- Confirmation Dialog -->
+    <string name="are_you_sure_text">Are you sure?</string>
+    <string name="do_you_really_text">Do you really want to finish this test?</string>
+    <string name="continue_test_text">Continue Test</string>
+    <string name="submit_text">Submit</string>
+
+    <!-- ResultActivity -->
+    <string name="result_text">Result</string>
+    <string name="your_score_text">Your Score: 0</string>
+    <string name="submitted_on_17_text">Submitted on 17 Mar 2021</string>
+    <string name="in_time_text">In Time: 00:44:56</string>
+    <string name="question_1_text">Question 1:</string>
+    <string name="the_value_of_1000_text">The value of (1000) by using binomial expensions is</string>
+    <string name="your_options_text">Your options</string>
+    <string name="obtain_marks_text">Obtain Marks:</string>
+    <string name="correct_answ_text">Correct Answer:</string>
+    <string name="your_ans_text">Your Answer:</string>
+
+    <!-- ChangePassword Activity -->
+    <string name="old_pass_text">Old Password</string>
+
+    <!-- MockTests Activity -->
+    <string name="neet_mock_test_text">NEET MOCK TEST</string>
+    <string name="neet_mock_test_about_text">NEET (UG) is one of the toughest medical entrance examinations
+conducted in India. National Eligibility cum Entrance Test is conducted by
+the National Testing Agency (NTA) for admission to
+undergraduate (MBBS/BDS/Ayush Courses) every year.</string>
+    <string name="about_this_course_text">About this course:</string>
+    <string name="about_this_course_desc_text">As per the norms and rule of natinal testing agency or CBSE, Neet exam
+paper divided into three part Biology, chemistry, physics. Out of them
+Biology secured half of the total Neet syllabus. </string>
+    <string name="neet_eligibility_text">NEET-UG Exam Eligibility Criteria:</string>
+    <string name="neet_eligibility_about_text">NEET is mandatory for Indian/Overseas candidates for admission to a
+     medical University in India.
+     Age Limit: General- 17 to 25 years (on or before 31st December of
+     the same year) SC/ST/OBC/PWD – 17 to 30 years</string>
+    <string name="neet_exam_pattern_text">NEET (UG) Exam Pattern:</string>
+    <string name="neet_pattern_que_text">What is the type and number of questions?</string>
+    <string name="neet_exam_pattern_about_text">
+
+NEET UG test paper includes multiple-choice questions (MCQ) from
+Physics, Chemistry, and Biology.
+No. of questions: 180</string>
+    <string name="subject_text">Subject</string>
+    <string name="no_of_que_text">No. of questions</string>
+    <string name="total_marks_text">Total Marks</string>
+    <string name="total_marks_720_text">Total Marks: 720</string>
+    <string name="duration_text">Duration: 03 hours</string>
+    <string name="neet_marketing_scheme_text">NEET (UG) Marking Scheme</string>
+    <string name="question_attempt_text">Questions Attempt</string>
+    <string name="marking_text">Marking</string>
+    <string name="corr_ans_text">Correct Answers</string>
+    <string name="inc_ans_text">Incorrect Answers</string>
+    <string name="what_you_will_text">What You will Learn:</string>
+    <string name="biology_text">Biology</string>
+    <string name="physics_text">Physics</string>
+    <string name="stu_feedback_text">Student Feedback:</string>
+    <string name="rating_12_text">12 Ratings</string>
+    <string name="rating_43_text">4.43</string>
+    <string name="rating_5_text">5</string>
+    <string name="rating_4_text">4</string>
+    <string name="rating_3_text">3</string>
+    <string name="rating_2_text">2</string>
+    <string name="rating_1_text">1</string>
+    <string name="no_of_que_45_text">45</string>
+    <string name="marks_180_text">180</string>
+    <string name="marking_4_text">+4</string>
+    <string name="marking_1_text">-1</string>
+    <string name="open_tests_text">Open Tests</string>
+    <string name="enroll_text">Enroll Now</string>
+    <string name="go_back_text">Go Back</string>
+
+    <!-- MockTests Dialog -->
+    <string name="questions_text">Questions</string>
+    <string name="minutes_text">Minutes</string>
+
+    <!-- EnrollNow Dialog -->
+    <string name="price_text">Course Price:</string>
+    <string name="price_0_text">\u20B9 0/-</string>
+    <string name="discount_with_offer_text">Offer valid till 28th April 2021 Hurry Now</string>
+    <string name="note_terms_and_conditions_text">Note: This offer is valid till 28th April 2021 after that Seekho terms and conditions can be applied.</string>
+    <string name="total_payable_amount_text">Total Payable Amount: </string>
+    <string name="discount_text">Discount: </string>
+
+    <!-- Community -->
+    <string name="mem_1_name">Chandra Prakash</string>
+    <string name="mem_1_location">Delhi, India</string>
+    <string name="mem_1_desc">Its concise notes and handy solutions for questions make it easier to learn, revise and perform.</string>
+
+    <string name="mem_2_name">Aditya Kumar Gupta</string>
+    <string name="mem_2_location">Kota, Rajasthan</string>
+    <string name="mem_2_desc">The course was greatly helpful as it included high standard notes, practice questions which covered each and every concepts, chapter tests that reflected the students level in each topics and the mock tests...</string>
+
+    <string name="mem_3_name">Bharati Sharma</string>
+    <string name="mem_3_location">Jaipur, Rajasthan</string>
+    <string name="mem_3_desc">Preparing with Seekho Live has been awesome. It helped me with lot many quality questions to improve and score better.</string>
+
+    <!-- SnackBar CameraAndImage Picker -->
+    <string name="camera_text">Camera</string>
+    <string name="gallery_text">Gallery</string>
+    <string name="choose_text">Choose Action</string>
+</resources>
