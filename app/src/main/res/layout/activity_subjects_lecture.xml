@@ -111,7 +111,23 @@
                     android:textColor="@color/grey_text"
                     android:textSize="@dimen/small_text_size"
                     android:visibility="visible"/>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/exo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_250sp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/size_8sp"
+                    android:layout_margin="@dimen/size_1sp"
+                    android:visibility="gone">
 
+                    <com.google.android.exoplayer2.ui.PlayerView
+                        android:id="@+id/exo_pl"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_250sp"
+
+                        app:controller_layout_id="@layout/exo_playback_control_view"
+                        />
+                </androidx.cardview.widget.CardView>
                 <!--            <io.github.kexanie.library.MathView-->
                 <!--                android:id="@+id/math_view"-->
                 <!--                android:layout_width="match_parent"-->

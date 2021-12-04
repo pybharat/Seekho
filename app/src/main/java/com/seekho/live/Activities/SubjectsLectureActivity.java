@@ -1,16 +1,24 @@
 package com.seekho.live.Activities;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.util.Util;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
@@ -19,8 +27,8 @@ import com.seekho.live.AppBase.YouTubeAppBaseActivity;
 import com.seekho.live.Models.Courses.ChaptersModel.TopicVideosModel;
 import com.seekho.live.Preferences.Pref;
 import com.seekho.live.R;
+import com.seekho.live.VimeoPlayer.VimeoHelper;
 import com.seekho.live.WebBase.WebRequest;
-
 import io.github.kexanie.library.MathView;
 import retrofit2.Response;
 
@@ -38,6 +46,16 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
     CardView youtube_cv, vimeo_cv;
     SwipeRefreshLayout swipe_refresh_layout;
     ProgressBar progress_bar;
+
+
+    private static final String VIMEO_ACCESS_TOKEN = "12db61deb1266bcf8dcb0c52631fd9d0";
+    private PlayerView playerView;
+    private SimpleExoPlayer player;
+
+    //Release references
+
+
+
 
     @Override
     public int layoutResourceID() {
@@ -57,6 +75,8 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
         vimeo_cv = findViewById(R.id.vimeo_cv);
         swipe_refresh_layout = findViewById(R.id.swipe_refresh_layout);
         progress_bar = findViewById(R.id.progress_bar);
+
+
         //math_view = findViewById(R.id.math_view);
 
         if (getIntent().getExtras() != null) {
@@ -64,8 +84,6 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
             title = getIntent().getExtras().getString(KEY_TITLE);
         }
         title_tv.setText(title);
-
-
         callTopicVideosApi();
         back_iv.setOnClickListener(this);
         swipe_refresh_layout.setOnRefreshListener(this);
@@ -168,13 +186,25 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
             if (videoData == null) return;
             Log.d(getClass().getSimpleName(), videoData.toString());
             if (videoData.getCv_vedio_provider().equals("vimeo")) {
-                vimeo_cv.setVisibility(View.VISIBLE);
+                vimeo_cv.setVisibility(View.GONE);
                 youtube_cv.setVisibility(View.GONE);
                 if (videoData.getCv_location() != null && !videoData.getCv_location().equals("")) {
                     String[] video_id = videoData.getCv_location().split("\\/", 5);
                     if (video_id[4] == null || video_id[4].equals("") || video_id[4].length() <= 0)
                         return;
-                    setVimeoPlayer(getBaseContext(), vimeo_player, Integer.parseInt(video_id[4]));
+                   else {
+                        String actual_string = videoData.getCv_description();
+                        Log.d("bharat123", video_id[0]+video_id[1]+video_id[2]+video_id[3]+video_id[4]);
+                   Intent i=new Intent(SubjectsLectureActivity.this,VimeoActivity.class);
+                   i.putExtra("videoid",video_id[4]);
+                   i.putExtra("topic_id",topic_id);
+                   i.putExtra("title",title);
+                   i.putExtra("des",actual_string);
+                   startActivity(i);
+                   }
+                    //Build vimeo configuration
+
+                 //  setVimeoPlayer(getBaseContext(), vimeo_player, Integer.parseInt(video_id[4]));
                 }
             } else if (videoData.getCv_vedio_provider().equals("youtube")) {
                 vimeo_cv.setVisibility(View.GONE);
@@ -200,4 +230,20 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
             return;
         }
     }
+    @SuppressLint("InlinedApi")
+    private void hideSystemUi() {
+        playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+    }
+
+
+
+
+
+
+
 }
