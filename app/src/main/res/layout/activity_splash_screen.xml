@@ -29,7 +29,7 @@
             android:textColor="@color/app_gold"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:fontFamily="@font/josefin_sans_semi_bold_italic"/>
+            android:fontFamily="@font/josefin_sans_semi_bold"/>
 
         <View
             android:layout_width="@dimen/size_70sp"

@@ -66,7 +66,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="@dimen/size_15sp">
-
+ <LinearLayout
+     android:id="@+id/player1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/size_15sp">
                 <androidx.cardview.widget.CardView
                     android:id="@+id/youtube_cv"
                     android:layout_width="match_parent"
@@ -100,7 +105,22 @@
                         app:showOriginalControls="true"
                         android:background="@color/black" />
                 </androidx.cardview.widget.CardView>
+     <androidx.cardview.widget.CardView
 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@color/white"
+         app:cardCornerRadius="@dimen/size_8sp"
+         android:layout_margin="@dimen/size_1sp"
+         >
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/exo_pl"
+                    android:layout_width="match_parent"
+                    android:layout_height="250sp"
+                    app:controller_layout_id="@layout/exo_playback_control_view"
+                    />
+     </androidx.cardview.widget.CardView>
+ </LinearLayout>
                 <io.github.kexanie.library.MathView
                     android:id="@+id/desc_wv"
                     android:layout_width="match_parent"
@@ -111,140 +131,7 @@
                     android:textColor="@color/grey_text"
                     android:textSize="@dimen/small_text_size"
                     android:visibility="visible"/>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/exo"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/size_250sp"
-                    android:background="@color/white"
-                    app:cardCornerRadius="@dimen/size_8sp"
-                    android:layout_margin="@dimen/size_1sp"
-                    android:visibility="gone">
 
-                    <com.google.android.exoplayer2.ui.PlayerView
-                        android:id="@+id/exo_pl"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/size_250sp"
-
-                        app:controller_layout_id="@layout/exo_playback_control_view"
-                        />
-                </androidx.cardview.widget.CardView>
-                <!--            <io.github.kexanie.library.MathView-->
-                <!--                android:id="@+id/math_view"-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:layout_marginTop="@dimen/size_10sp"-->
-                <!--                app:engine="MathJax"/>-->
-
-
-                <!--            <LinearLayout-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:orientation="vertical">-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_10sp"-->
-                <!--                    android:text="@string/elementary_algebra_text"-->
-                <!--                    android:textAllCaps="true"-->
-                <!--                    android:textColor="@color/light_blue"-->
-                <!--                    android:textSize="@dimen/small_medium_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/common_formula_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_1_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_2_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_3_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_4_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-                <!--            </LinearLayout>-->
-
-                <!--            <LinearLayout-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:orientation="vertical">-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_10sp"-->
-                <!--                    android:text="@string/elementary_algebra_text"-->
-                <!--                    android:textAllCaps="true"-->
-                <!--                    android:textColor="@color/light_blue"-->
-                <!--                    android:textSize="@dimen/small_medium_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/common_formula_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_1_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_2_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_3_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/size_5sp"-->
-                <!--                    android:text="@string/option_4_text"-->
-                <!--                    android:textColor="@color/custom_black"-->
-                <!--                    android:textSize="@dimen/small_text_size" />-->
-                <!--            </LinearLayout>-->
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

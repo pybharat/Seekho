@@ -50,8 +50,12 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
 
     private static final String VIMEO_ACCESS_TOKEN = "12db61deb1266bcf8dcb0c52631fd9d0";
     private PlayerView playerView;
-    private SimpleExoPlayer player;
-
+SimpleExoPlayer player;
+    private boolean playWhenReady = false; //If true the player auto play the media
+    private int currentWindow = 0;
+    private long playbackPosition = 0;
+    boolean fullscreen = false;
+    ImageView fullscreenButton;
     //Release references
 
 
@@ -75,8 +79,8 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
         vimeo_cv = findViewById(R.id.vimeo_cv);
         swipe_refresh_layout = findViewById(R.id.swipe_refresh_layout);
         progress_bar = findViewById(R.id.progress_bar);
-
-
+        playerView = findViewById(R.id.exo_pl);
+        fullscreenButton = playerView.findViewById(R.id.exo_fullscreen_icon);
         //math_view = findViewById(R.id.math_view);
 
         if (getIntent().getExtras() != null) {
@@ -98,6 +102,46 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
             desc_wv.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
             desc_wv.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         }
+        fullscreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (fullscreen) {
+                    fullscreenButton.setImageDrawable(ContextCompat.getDrawable(SubjectsLectureActivity.this, R.drawable.ic_fullscreen_open));
+
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+
+
+
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
+
+                    params.width = params.MATCH_PARENT;
+                    params.height = (int) (250 * getApplicationContext().getResources().getDisplayMetrics().density);
+                    playerView.setLayoutParams(params);
+                    fullscreen = false;
+
+                } else {
+                    fullscreenButton.setImageDrawable(ContextCompat.getDrawable(SubjectsLectureActivity.this, R.drawable.ic_fullscreen_close));
+
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
+
+                    params.width = params.MATCH_PARENT;
+                    params.height = params.MATCH_PARENT;
+                    playerView.setLayoutParams(params);
+                    fullscreen = true;
+
+                }
+
+            }
+        });
     }
 
 
@@ -188,27 +232,35 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
             if (videoData.getCv_vedio_provider().equals("vimeo")) {
                 vimeo_cv.setVisibility(View.GONE);
                 youtube_cv.setVisibility(View.GONE);
+                playerView.setVisibility(View.VISIBLE);
                 if (videoData.getCv_location() != null && !videoData.getCv_location().equals("")) {
                     String[] video_id = videoData.getCv_location().split("\\/", 5);
                     if (video_id[4] == null || video_id[4].equals("") || video_id[4].length() <= 0)
                         return;
                    else {
                         String actual_string = videoData.getCv_description();
-                        Log.d("bharat123", video_id[0]+video_id[1]+video_id[2]+video_id[3]+video_id[4]);
-                   Intent i=new Intent(SubjectsLectureActivity.this,VimeoActivity.class);
+
+                /*   Intent i=new Intent(SubjectsLectureActivity.this,VimeoActivity.class);
                    i.putExtra("videoid",video_id[4]);
                    i.putExtra("topic_id",topic_id);
                    i.putExtra("title",title);
                    i.putExtra("des",actual_string);
                    startActivity(i);
-                   }
+                       */
                     //Build vimeo configuration
+                        VimeoHelper vimeoHelper=new VimeoHelper(SubjectsLectureActivity.this,video_id[4]);
+                        //Build vimeo configuration
+                        vimeoHelper.configVimeoClient(VIMEO_ACCESS_TOKEN);
+                        vimeoHelper.initializePlayer(player,playerView);
+                 // setVimeoPlayer(getBaseContext(), vimeo_player, Integer.parseInt(video_id[4]));
 
-                 //  setVimeoPlayer(getBaseContext(), vimeo_player, Integer.parseInt(video_id[4]));
+
+                    }
                 }
             } else if (videoData.getCv_vedio_provider().equals("youtube")) {
                 vimeo_cv.setVisibility(View.GONE);
                 youtube_cv.setVisibility(View.VISIBLE);
+                playerView.setVisibility(View.GONE);
                 if (videoData.getCv_location() != null && !videoData.getCv_location().equals("")) {
                     String[] video_id = videoData.getCv_location().split("=");
                     if (video_id[1] == null || video_id[1].equals("") || video_id[1].length() <= 0)
@@ -231,7 +283,7 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
         }
     }
     @SuppressLint("InlinedApi")
-    private void hideSystemUi() {
+    private void hideSystemUi(){
         playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -239,11 +291,39 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (Util.SDK_INT < 24) {
+            //Frees the player's resources and destroys it.
+            releasePlayer(player);
+        }
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT >= 24) {
+            //Frees the player's resources and destroys it.
+            releasePlayer(player);
+        }
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        releasePlayer(player);
+    }
 
-
-
+    private void releasePlayer(SimpleExoPlayer player) {
+        if (player != null) {
+            playWhenReady = player.getPlayWhenReady();
+            playbackPosition = player.getCurrentPosition();
+            currentWindow = player.getCurrentWindowIndex();
+            player.release();
+            player = null;
+        }
+    }
 
 }

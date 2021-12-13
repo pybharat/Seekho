@@ -1,20 +1,17 @@
 package com.seekho.live.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.PlayerView;
@@ -23,6 +20,8 @@ import com.seekho.live.R;
 import com.seekho.live.VimeoPlayer.VimeoHelper;
 
 import io.github.kexanie.library.MathView;
+
+;
 
 public class VimeoActivity extends AppCompatActivity {
 TextView title_tv;
@@ -83,7 +82,6 @@ String videoid,topic_id,title,des;
                     params.width = params.MATCH_PARENT;
                     params.height = (int) (200 * getApplicationContext().getResources().getDisplayMetrics().density);
                     playerView.setLayoutParams(params);
-
                     fullscreen = false;
 
                 } else {
