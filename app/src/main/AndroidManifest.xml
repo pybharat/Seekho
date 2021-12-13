@@ -34,8 +34,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Seekho">
         <activity android:name=".Activities.VimeoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize"
+            ></activity>
         <activity
             android:name=".Activities.SplashScreen"
             android:configChanges="orientation|keyboardHidden|uiMode">

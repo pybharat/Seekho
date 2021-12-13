@@ -7,27 +7,18 @@
     tools:context=".Activities.VimeoActivity">
 
 
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/exo"
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/exo_pl"
         android:layout_width="match_parent"
-        android:layout_height="250sp"
-        android:background="@color/white"
-        app:cardCornerRadius="@dimen/size_8sp"
-        android:layout_margin="@dimen/size_1sp"
-        >
+        android:layout_height="250dp"
+        app:controller_layout_id="@layout/exo_playback_control_view"
+        />
 
-        <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/exo_pl"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:controller_layout_id="@layout/exo_playback_control_view"
-            />
-    </androidx.cardview.widget.CardView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="250dp"
                 android:orientation="vertical"
                 android:background="@color/white"
                 android:padding="@dimen/size_15sp">

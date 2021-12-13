@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -19,6 +20,7 @@ import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.util.Util;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
@@ -57,7 +59,7 @@ SimpleExoPlayer player;
     boolean fullscreen = false;
     ImageView fullscreenButton;
     //Release references
-
+    MaterialCardView materialCardView;
 
 
 
@@ -80,6 +82,7 @@ SimpleExoPlayer player;
         swipe_refresh_layout = findViewById(R.id.swipe_refresh_layout);
         progress_bar = findViewById(R.id.progress_bar);
         playerView = findViewById(R.id.exo_pl);
+        materialCardView = findViewById(R.id.card_view);
         fullscreenButton = playerView.findViewById(R.id.exo_fullscreen_icon);
         //math_view = findViewById(R.id.math_view);
 
@@ -114,13 +117,13 @@ SimpleExoPlayer player;
 
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
+                    FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) playerView.getLayoutParams();
 
                     params.width = params.MATCH_PARENT;
                     params.height = (int) (250 * getApplicationContext().getResources().getDisplayMetrics().density);
                     playerView.setLayoutParams(params);
                     fullscreen = false;
-
+                    materialCardView.setVisibility(View.VISIBLE);
                 } else {
                     fullscreenButton.setImageDrawable(ContextCompat.getDrawable(SubjectsLectureActivity.this, R.drawable.ic_fullscreen_close));
 
@@ -131,13 +134,13 @@ SimpleExoPlayer player;
 
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
+                    FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) playerView.getLayoutParams();
 
                     params.width = params.MATCH_PARENT;
                     params.height = params.MATCH_PARENT;
                     playerView.setLayoutParams(params);
                     fullscreen = true;
-
+                    materialCardView.setVisibility(View.GONE);
                 }
 
             }
