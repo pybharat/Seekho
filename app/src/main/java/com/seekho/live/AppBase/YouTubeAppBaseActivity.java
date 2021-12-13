@@ -9,14 +9,13 @@ import android.widget.Toast;
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView;
+
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.seekho.live.Base.BaseYouTubeActivity;
 import com.seekho.live.BaseToolsFragment.ToolbarFragment;
 import com.seekho.live.Interfaces.Constants;
 import com.seekho.live.R;
-import com.seekho.live.VimeoPlayer.VimeoPlayerHelper;
 import com.seekho.live.WebBase.WebContants;
 import com.seekho.live.WebBase.WebListener;
 import com.seekho.live.WebBase.WebRequest;
@@ -53,13 +52,7 @@ public abstract class YouTubeAppBaseActivity extends BaseYouTubeActivity impleme
 
     }
 
-    public VimeoPlayerHelper setVimeoPlayer(Context context, VimeoPlayerView vimeoPlayerView, int videoID){
-        VimeoPlayerHelper vimeoPlayerHelper = null;
-        if (context != null && vimeoPlayerView != null && videoID > 0){
-            vimeoPlayerHelper = new VimeoPlayerHelper(context,vimeoPlayerView,videoID);
-        }
-        return vimeoPlayerHelper;
-    }
+
 
     @Override
     public void onClick(View view) {

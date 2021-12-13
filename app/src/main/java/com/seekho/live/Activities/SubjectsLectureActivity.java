@@ -11,12 +11,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.util.Util;
@@ -40,7 +37,6 @@ public class SubjectsLectureActivity extends YouTubeAppBaseActivity {
     String title = "";
 
     YouTubePlayerView you_tube_pv;
-    VimeoPlayerView vimeo_player;
     TextView title_tv;
     ImageView back_iv;
     MathView desc_wv;
@@ -76,9 +72,9 @@ SimpleExoPlayer player;
         desc_wv = findViewById(R.id.desc_wv);
         title_tv = findViewById(R.id.title_tv);
         you_tube_pv = findViewById(R.id.you_tube_pv);
-        vimeo_player = findViewById(R.id.vimeo_player);
+
         youtube_cv = findViewById(R.id.youtube_cv);
-        vimeo_cv = findViewById(R.id.vimeo_cv);
+
         swipe_refresh_layout = findViewById(R.id.swipe_refresh_layout);
         progress_bar = findViewById(R.id.progress_bar);
         playerView = findViewById(R.id.exo_pl);
@@ -233,7 +229,6 @@ SimpleExoPlayer player;
             if (videoData == null) return;
             Log.d(getClass().getSimpleName(), videoData.toString());
             if (videoData.getCv_vedio_provider().equals("vimeo")) {
-                vimeo_cv.setVisibility(View.GONE);
                 youtube_cv.setVisibility(View.GONE);
                 playerView.setVisibility(View.VISIBLE);
                 if (videoData.getCv_location() != null && !videoData.getCv_location().equals("")) {
@@ -261,7 +256,6 @@ SimpleExoPlayer player;
                     }
                 }
             } else if (videoData.getCv_vedio_provider().equals("youtube")) {
-                vimeo_cv.setVisibility(View.GONE);
                 youtube_cv.setVisibility(View.VISIBLE);
                 playerView.setVisibility(View.GONE);
                 if (videoData.getCv_location() != null && !videoData.getCv_location().equals("")) {
@@ -308,7 +302,7 @@ SimpleExoPlayer player;
         super.onStop();
         if (Util.SDK_INT >= 24) {
             //Frees the player's resources and destroys it.
-            releasePlayer(player);
+            playerView.getPlayer().release();
         }
     }
 
@@ -316,7 +310,7 @@ SimpleExoPlayer player;
     public void onBackPressed() {
         super.onBackPressed();
 
-        releasePlayer(player);
+        playerView.getPlayer().release();
     }
 
     private void releasePlayer(SimpleExoPlayer player) {
@@ -329,4 +323,9 @@ SimpleExoPlayer player;
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        playerView.getPlayer().release();
+    }
 }

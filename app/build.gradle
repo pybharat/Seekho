@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
     //----------------------------- VimeoPlayer ---------------------------------------
-    implementation 'com.ct7ct7ct7.androidvimeoplayer:library:1.0.8'
+
 
     //---------------------------- MathView -------------------------------------------
     implementation 'io.github.kexanie.library:MathView:0.0.6';

@@ -77,25 +77,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/vimeo_cv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:cardCornerRadius="@dimen/size_8sp"
-            android:layout_margin="@dimen/size_12sp"
-
-            android:visibility="gone">
-
-            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
-                android:id="@+id/vimeo_player"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:autoPlay="false"
-                app:showFullscreenOption="true"
-                app:showOriginalControls="true"
-                android:background="@color/black" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,6 +88,7 @@
                 android:id="@+id/exo_pl"
                 android:layout_width="match_parent"
                 android:layout_height="250sp"
+                app:show_buffering="always"
                 app:controller_layout_id="@layout/exo_playback_control_view"
                 />
         </androidx.cardview.widget.CardView>
