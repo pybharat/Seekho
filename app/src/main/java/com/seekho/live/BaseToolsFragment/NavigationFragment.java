@@ -1,5 +1,6 @@
 package com.seekho.live.BaseToolsFragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -10,9 +11,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.Task;
 import com.google.gson.JsonObject;
 import com.seekho.live.Activities.DashboardActivity;
 import com.seekho.live.AppBase.AppBaseFragment;
+import com.seekho.live.BuildConfig;
 import com.seekho.live.Models.UserProfile.UserInfoDataModel;
 import com.seekho.live.Models.UserProfile.UserInfoModel;
 import com.seekho.live.Preferences.Pref;
@@ -128,6 +134,12 @@ public class NavigationFragment extends AppBaseFragment {
                 handleDrawer();
                 break;
             case R.id.share_app_ll:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Hey check out my app at: https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
                 setNavigationView(1);
                 handleDrawer();
                 break;
@@ -136,6 +148,7 @@ public class NavigationFragment extends AppBaseFragment {
                 handleDrawer();
                 break;
             case R.id.rate_us_ll:
+                askRatings();
                 setNavigationView(3);
                 handleDrawer();
                 break;
@@ -387,5 +400,22 @@ public class NavigationFragment extends AppBaseFragment {
 
         }
     };
-
+    void askRatings() {
+        ReviewManager manager = ReviewManagerFactory.create(getActivity());
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        ((Task<?>) request).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                ReviewInfo reviewInfo = (ReviewInfo) task.getResult();
+                Task<Void> flow = manager.launchReviewFlow(getActivity(), reviewInfo);
+                flow.addOnCompleteListener(task2 -> {
+                    // The flow has finished. The API does not indicate whether the user
+                    // reviewed or not, or even whether the review dialog was shown. Thus, no
+                    // matter the result, we continue our app flow.
+                });
+            } else {
+                // There was some problem, continue regardless of the result.
+            }
+        });
+    }
 }

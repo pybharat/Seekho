@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
-    //----------------------------- VimeoPlayer ---------------------------------------
+    implementation 'com.google.android.play:core:1.8.0'
 
 
     //---------------------------- MathView -------------------------------------------
