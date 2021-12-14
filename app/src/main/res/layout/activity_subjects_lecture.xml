@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:cardCornerRadius="@dimen/size_8sp"
+            app:cardCornerRadius="@dimen/size_2sp"
             android:layout_margin="@dimen/size_12sp"
 
             android:visibility="gone">
@@ -77,18 +77,19 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-
+            android:id="@+id/exo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:cardCornerRadius="@dimen/size_8sp"
-
+            app:cardCornerRadius="@dimen/size_2sp"
+            android:layout_margin="@dimen/size_12sp"
             >
             <com.google.android.exoplayer2.ui.PlayerView
                 android:id="@+id/exo_pl"
                 android:layout_width="match_parent"
                 android:layout_height="250sp"
                 app:show_buffering="always"
+
                 app:controller_layout_id="@layout/exo_playback_control_view"
                 />
         </androidx.cardview.widget.CardView>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,8 +57,8 @@ SimpleExoPlayer player;
     ImageView fullscreenButton;
     //Release references
     MaterialCardView materialCardView;
-
-
+    String video_type=null;
+    CardView cardView;
 
     @Override
     public int layoutResourceID() {
@@ -79,6 +80,7 @@ SimpleExoPlayer player;
         progress_bar = findViewById(R.id.progress_bar);
         playerView = findViewById(R.id.exo_pl);
         materialCardView = findViewById(R.id.card_view);
+        cardView = findViewById(R.id.exo);
         fullscreenButton = playerView.findViewById(R.id.exo_fullscreen_icon);
         //math_view = findViewById(R.id.math_view);
 
@@ -114,7 +116,9 @@ SimpleExoPlayer player;
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
                     FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) playerView.getLayoutParams();
-
+                    LinearLayout.LayoutParams card = (LinearLayout.LayoutParams) cardView.getLayoutParams();
+                    card.setMargins(12,12,12,12);
+                    cardView.setLayoutParams(card);
                     params.width = params.MATCH_PARENT;
                     params.height = (int) (250 * getApplicationContext().getResources().getDisplayMetrics().density);
                     playerView.setLayoutParams(params);
@@ -131,7 +135,9 @@ SimpleExoPlayer player;
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
                     FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) playerView.getLayoutParams();
-
+                    LinearLayout.LayoutParams card = (LinearLayout.LayoutParams) cardView.getLayoutParams();
+                    card.setMargins(0,0,0,0);
+                    cardView.setLayoutParams(card);
                     params.width = params.MATCH_PARENT;
                     params.height = params.MATCH_PARENT;
                     playerView.setLayoutParams(params);
@@ -228,6 +234,7 @@ SimpleExoPlayer player;
             TopicVideosModel.VideoData videoData = topicsData.getMessage().getVideodet();
             if (videoData == null) return;
             Log.d(getClass().getSimpleName(), videoData.toString());
+            video_type=videoData.getCv_vedio_provider().toString();
             if (videoData.getCv_vedio_provider().equals("vimeo")) {
                 youtube_cv.setVisibility(View.GONE);
                 playerView.setVisibility(View.VISIBLE);
@@ -293,6 +300,7 @@ SimpleExoPlayer player;
         super.onPause();
         if (Util.SDK_INT < 24) {
             //Frees the player's resources and destroys it.
+            if(video_type.equals("vimeo"))
             releasePlayer(player);
         }
     }
@@ -302,6 +310,7 @@ SimpleExoPlayer player;
         super.onStop();
         if (Util.SDK_INT >= 24) {
             //Frees the player's resources and destroys it.
+            if(video_type.equals("vimeo"))
             playerView.getPlayer().release();
         }
     }
@@ -309,7 +318,7 @@ SimpleExoPlayer player;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
+        if(video_type.equals("vimeo"))
         playerView.getPlayer().release();
     }
 
@@ -326,6 +335,7 @@ SimpleExoPlayer player;
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if(video_type.equals("vimeo"))
         playerView.getPlayer().release();
     }
 }
