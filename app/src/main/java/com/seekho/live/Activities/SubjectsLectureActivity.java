@@ -122,6 +122,7 @@ SimpleExoPlayer player;
                     params.width = params.MATCH_PARENT;
                     params.height = (int) (250 * getApplicationContext().getResources().getDisplayMetrics().density);
                     playerView.setLayoutParams(params);
+                    playerView.setKeepScreenOn(true);
                     fullscreen = false;
                     materialCardView.setVisibility(View.VISIBLE);
                 } else {
@@ -141,6 +142,7 @@ SimpleExoPlayer player;
                     params.width = params.MATCH_PARENT;
                     params.height = params.MATCH_PARENT;
                     playerView.setLayoutParams(params);
+                    playerView.setKeepScreenOn(true);
                     fullscreen = true;
                     materialCardView.setVisibility(View.GONE);
                 }
@@ -243,33 +245,28 @@ SimpleExoPlayer player;
                     if (video_id[4] == null || video_id[4].equals("") || video_id[4].length() <= 0)
                         return;
                    else {
-                        String actual_string = videoData.getCv_description();
-
-                /*   Intent i=new Intent(SubjectsLectureActivity.this,VimeoActivity.class);
-                   i.putExtra("videoid",video_id[4]);
-                   i.putExtra("topic_id",topic_id);
-                   i.putExtra("title",title);
-                   i.putExtra("des",actual_string);
-                   startActivity(i);
-                       */
-                    //Build vimeo configuration
-                        VimeoHelper vimeoHelper=new VimeoHelper(SubjectsLectureActivity.this,video_id[4]);
                         //Build vimeo configuration
+                        VimeoHelper vimeoHelper=new VimeoHelper(SubjectsLectureActivity.this,video_id[4]);
                         vimeoHelper.configVimeoClient(VIMEO_ACCESS_TOKEN);
                         vimeoHelper.initializePlayer(player,playerView);
-                 // setVimeoPlayer(getBaseContext(), vimeo_player, Integer.parseInt(video_id[4]));
-
-
-                    }
+                        playerView.setKeepScreenOn(true);
+                   }
                 }
             } else if (videoData.getCv_vedio_provider().equals("youtube")) {
                 youtube_cv.setVisibility(View.VISIBLE);
                 playerView.setVisibility(View.GONE);
-                if (videoData.getCv_location() != null && !videoData.getCv_location().equals("")) {
+                if (videoData.getCv_location() != null && !videoData.getCv_location().equals("") ) {
                     String[] video_id = videoData.getCv_location().split("=");
                     if (video_id[1] == null || video_id[1].equals("") || video_id[1].length() <= 0)
                         return;
-                    initializeYouTube(video_id[1]);
+                    if(!video_id[1].matches("cLAyg0IEpDY")) {
+                        initializeYouTube(video_id[1]);
+                    }
+                    else
+                    {
+                        youtube_cv.setVisibility(View.GONE);
+                        playerView.setVisibility(View.GONE);
+                    }
                 }
             }
 
