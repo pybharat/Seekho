@@ -1,17 +1,25 @@
 package com.seekho.live.Activities;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.seekho.live.Adapters.PagerAdapters.SeekhoPagerAdapter;
 import com.seekho.live.AppBase.AppBaseActivity;
 import com.seekho.live.Fragments.HomeFragment;
@@ -48,6 +56,26 @@ public class DashboardActivity extends AppBaseActivity {
         UpdateApp();
         setSeekhoMainPager();
         setViews(0);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            NotificationChannel channel=
+                    new NotificationChannel("seekho","seekho", NotificationManager.IMPORTANCE_DEFAULT);
+
+            NotificationManager manager=getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        FirebaseMessaging.getInstance().subscribeToTopic("general")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                        String msg = "Successfull.";
+                        if (!task.isSuccessful()) {
+                            msg = "Failed.";
+                        }
+
+                        Toast.makeText(DashboardActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void setSeekhoMainPager() {

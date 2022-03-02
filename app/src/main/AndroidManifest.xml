@@ -34,6 +34,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Seekho">
         <activity
+            android:exported="true"
             android:name=".Activities.SplashScreen"
             android:configChanges="orientation|keyboardHidden|uiMode">
             <intent-filter>
@@ -43,62 +44,77 @@
             </intent-filter>
         </activity>
         <activity
+            android:exported="true"
             android:name=".Activities.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.RegisterActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".Activities.DashboardActivity"
+            android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.OTPVerificationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.SubCoursesActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.LecturesAndAccompayingMCQActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.SubjectsLectureActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.QuizActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.ResultsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.UpdateProfileActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.UpdatePasswordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.MockTestsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.WebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" />
         <activity
+            android:exported="true"
             android:name=".Activities.AllMainCoursesActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" /> <!-- ImageCropper -->
         <activity
+            android:exported="true"
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- FileProvider -->
         <provider
@@ -110,6 +126,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+        <service
+            android:name=".firebase.MyMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
